@@ -41,7 +41,7 @@ export class AddRepostar{
 		this.title = "Añadir Repostaje";
 		this.rol = sessionStorage.getItem('rolLocal');
 		this.ruta = sessionStorage.getItem('rutaLocal');
-		this.repostaje = new Repostar('','','','','','','','');
+		this.repostaje = new Repostar('','','','','','');
 		this.repostaje.conductor = this.ruta;
 		this.boton = "Añadir";
 		this.miVehiculo = new Array('');
@@ -87,7 +87,15 @@ export class AddRepostar{
 
 	}
 	onSubmit(){
-		console.log(this.repostaje);
+		var currentDate= new Date();
+		this.repostaje.hora = currentDate.getTime();
+		this._repostarService.addRepostar(this.repostaje).subscribe(
+			(result:any)=>{
+				alert(result.message);
+				this.router.navigate(['/inicio']);
+			}
+			);
+
 	}
 
 	otroMotivo(){

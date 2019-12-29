@@ -5,8 +5,6 @@ export class Repostar{
 		public litros, 
 		public kilometros, 
 		public conductor,
-		public kmtotal,
-		public kmanterior,
 		public hora
 		){
 		

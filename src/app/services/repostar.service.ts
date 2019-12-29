@@ -33,6 +33,16 @@ export class RepostarService{
 		
 	}
 
+	addRepostar(repostaje){
+		let json = JSON.stringify(repostaje);
+			let params = 'json='+json;
+			let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+			return this.http.post(this.urlRepostar+'add', params ,{headers:headers});
+	}
+
+	borrarRepostar(id){
+		return this.http.get(this.urlRepostar+'delete/'+id);
+	}
 
 /*		hacerLogin(usuario){
 				let json = JSON.stringify(usuario);

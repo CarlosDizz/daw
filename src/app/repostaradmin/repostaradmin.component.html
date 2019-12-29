@@ -20,8 +20,16 @@
 			<td>ruta {{item.conductor}}</td>
 			<th *ngIf="rol == 'admin'">
 				<a ><i class="far fa-edit editBtn"></i></a>
-				<a ><i id="trash" class="far fa-trash-alt"></i></a>
+				<a (click)="delete(item.id)"><i id="trash" class="far fa-trash-alt"></i></a>
+				<div [class]="hidden" id="warning" style="display: none">
+					<p><i class="fas fa-exclamation-triangle"></i> ¡Atención!</p>
+					<p>Vas a borrar un repostaje y luego no podrás recuperarlo.</p>
+					<p>¿Esás seguro?</p>
+					<button id="borrarOK" (click)="borrarRepostaje(item.id)">BORRAR</button>
+					<button id="borrarNO" (click)="descambiaHidden()">Mejor no.</button>
+				</div>
 			</th>
 		</tr>
 	</table>
+	
 </div>
