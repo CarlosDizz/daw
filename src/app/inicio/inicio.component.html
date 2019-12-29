@@ -1,0 +1,81 @@
+<menu></menu>
+
+<br>
+
+<div id="userInfo" *ngIf="rol != 'admin'">
+	<p class="welcome">Bienvenido {{usuario.nombre}}</p>
+	<p info>Eres {{usuario.rol}} y tu ruta es {{usuario.ruta}}.</p>
+	<p>Las notifcaciones te llegaran a:</p>
+	<p>{{usuario.correo}}</p>
+	<p>Si necesitas algún cambio solicitalo a tu administrador.</p>
+	
+</div>
+
+<div id="adminInfo" *ngIf="rol =='admin'">
+	<p class="welcome">Bienvenido {{usuario.nombre}}</p>
+	<p>Eres el administrador.</p>
+	<p>Las notifcaciones te llegaran a:</p>
+	<p>{{usuario.correo}}</p>
+</div>
+<div id="tablaUsuarios" *ngIf="rol =='admin'">
+	<p class="welcome">Listado de usuarios</p>
+	<table>
+		<tr>
+			<th>Ruta</th>
+			<th>Usuario</th>
+			<th>Modificar</th>
+			<th>Eliminar</th>
+		</tr>
+		<tr *ngFor="let user of lista">
+			<td>{{user.ruta}}</td>
+			<td>{{user.nombre}}</td>
+			<td><a (click)="editUser(user.ruta)"><i class="fas fa-user-edit"></i></a></td>
+			<td><a *ngIf="user.rol != 'admin'" (click)="cambiaHidden(user.id)"><i class="fas fa-trash" style="color:#E5122B"></i></a></td>
+		</tr>
+	</table><br>
+	<div [class]="hidden" id="warning" style="display: none">
+		<p><i class="fas fa-exclamation-triangle"></i> ¡Atención!</p>
+		<p>Vas a borrar un usuario y luego no podrás recuperarlo.</p>
+		<p>¿Esás seguro?</p>
+		<button id="borrarOK" (click)="borrarUsuario(id)">BORRAR</button>
+		<button id="borrarNO" (click)="descambiaHidden()">Mejor no.</button>
+	</div>
+	<a id="addUser" [routerLink]="['../newuser']"><i class="fas fa-user-plus"></i> Añadir usuario</a>
+</div>
+
+<div id="tablaUsuarios" *ngIf="misVehiculos != ''">
+	<div *ngFor="let vehicle of misVehiculos" class=vehicle>
+		<div class="vehicleHead"> 
+			<span> {{vehicle.modelo}}  -  {{vehicle.matricula}} <br> <b style="font-size: 0.6em">   ({{vehicle.kilometros}} km)</b></span>
+			
+			<hr>
+		</div>
+		<div class="vehicleBody">
+			<table style="width:100%; border:none!important">
+				<tr>
+					<td class="vehicleData" [ngClass]="{'danger':vehicle.itv <= currentDate}">ITV: <br><b [ngClass]="{'warning':vehicle.itv <= warningDate && vehicle.itv}" >{{vehicle.itv| date:"dd-MM-y"}} </b></td>
+					<td class="vehicleData" [ngClass]="{'danger':vehicle.seguro <= currentDate}">Seguro: <br><b [ngClass]="{'warning':vehicle.seguro <= warningDate && vehicle.seguro > currentDate}">{{vehicle.seguro| date:"dd-MM-y"}}</b></td>	
+				</tr>
+				<tr>
+					<td [ngClass]="{'danger': (vehicle.revision - vehicle.kilometros) < 100}" class="vehicleData">Revisión en: <br><b [ngClass]="{'warning': (vehicle.revision - vehicle.kilometros) < 1000}">{{vehicle.revision - vehicle.kilometros}} km</b></td>
+					<td class="vehicleData" [ngClass]="{'danger':vehicle.extintor <= currentDate}">Extintor: <br><b [ngClass]="{'warning':vehicle.extintor <= warningDate && vehicle.extintor > currentDate}">{{vehicle.extintor| date:"dd-MM-y"}}</b></td>	
+				</tr>
+				<tr>
+					<td class="vehicleData"*ngIf = "vehicle.tacografo != '0000-00-00'" [ngClass]="{'danger':vehicle.tacografo <= currentDate}">Tacógrafo: <br><b [ngClass]="{'warning':vehicle.tacografo <= warningDate && vehicle.tacografo > currentDate}">{{vehicle.tacografo| date:"dd-MM-y"}}</b></td>
+					<td class="vehicleData"*ngIf = "vehicle.atp != '0000-00-00'" [ngClass]="{'danger':vehicle.atp <= currentDate}">ATP: <br><b [ngClass]="{'warning':vehicle.atp <= warningDate && vehicle.atp > currentDate}">{{vehicle.atp| date:"dd-MM-y" }}</b></td>	
+				</tr>
+				<tr>
+					<td class="vehicleData" *ngIf = "vehicle.termografo != '0000-00-00'" [ngClass]="{'danger':vehicle.termografo <= currentDate}">Termógrafo: <br><b [ngClass]="{'warning':vehicle.termografo <= warningDate && vehicle.termografo > currentDate}">{{vehicle.termografo| date:"dd-MM-y"}}</b></td>
+					<td class="vehicleData" *ngIf = "vehicle.transporte != '0000-00-00'" [ngClass]="{'danger':vehicle.transporte <= currentDate}">T. Transporte: <br><b [ngClass]="{'warning':vehicle.transporte <= warningDate && vehicle.transporte > currentDate}">{{vehicle.transporte| date:"dd-MM-y"}}</b></td>	
+				</tr>
+			</table>
+		</div>
+		<div [class]="hidden" id="warning" style="display: none">
+		<p><i class="fas fa-exclamation-triangle"></i> ¡Atención!</p>
+		<p>Vas a borrar un vehiculo y luego no podrás recuperarlo.</p>
+		<p>¿Esás seguro?</p>
+		<button id="borrarOK" (click)="borrarVehiculo(id)">BORRAR</button>
+		<button id="borrarNO" (click)="descambiaHidden()">Mejor no.</button>
+	</div>
+	</div>
+</div>

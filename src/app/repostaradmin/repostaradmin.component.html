@@ -1,0 +1,27 @@
+<menu></menu>
+<br>
+<div id="adminInfo" *ngIf="rol == 'admin' || rol == 'supervisor'">
+	<p>{{title}} - {{rol}}</p>
+	<a id="addUser" [routerLink]="['../addrepostar']"><i class="fas fa-plus-circle"></i> Añadir repostaje</a>
+</div>
+<div id="tablaUsuarios">
+	<table>
+		<tr >
+			<th>Vehiculo</th>
+			<th>Cantidad</th>
+			<th>Momento</th>
+			<th>Usuario</th>
+			<th *ngIf="rol == 'admin'">Control</th>
+		</tr>
+		<tr *ngFor="let item of lista">
+			<td>{{item.vehiculo}}</td>
+			<td>{{item.litros}} litros</td>
+			<td>{{item.hora|date: "hh:mm dd-MM-yyyy"}}</td>
+			<td>ruta {{item.conductor}}</td>
+			<th *ngIf="rol == 'admin'">
+				<a ><i class="far fa-edit editBtn"></i></a>
+				<a ><i id="trash" class="far fa-trash-alt"></i></a>
+			</th>
+		</tr>
+	</table>
+</div>

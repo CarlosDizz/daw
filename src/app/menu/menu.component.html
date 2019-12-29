@@ -1,0 +1,33 @@
+<nav *ngIf="rol =='admin'">
+	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/vehiculos"><i class="fas fa-truck"></i> Vehículos</a>
+	<a class="menuBtn" routerLink="/repostaradmin"><i class="fas fa-gas-pump">-<i class="far fa-list-alt"></i></i> Gasoil</a> 
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt">...</i></a>
+</nav>
+
+<nav *ngIf="rol =='almacenista'">
+	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
+</nav>
+
+<nav *ngIf="rol =='repartidor'">
+	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
+</nav>
+
+<nav *ngIf="rol =='comercial'">
+	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	<a (click)="logout()" id="logout"  title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
+</nav>
+
+<nav *ngIf="rol =='supervisor'">
+	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	<a class="menuBtn" routerLink="/vehiculos"><i class="fas fa-truck"></i> Vehículos</a>
+	<a class="menuBtn" routerLink="/repostaradmin"><i class="fas fa-gas-pump">-<i class="far fa-list-alt"></i> </i> Gasoil</a>
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"> </i></a>
+</nav>

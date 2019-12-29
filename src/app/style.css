@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap');
+
+
+nav{
+	color:white;
+	background-color: #203564;
+	min-height: 50px;
+	align-content: center;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-size: 16px;
+	vertical-align: middle;
+
+}
+
+
+nav a{
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-size: 20px;
+	border:2px solid white;
+	border-radius: 5px;
+}
+#logout, .deleteBtn{
+	padding: 2px 20px!important;
+	margin:10px 5px!important;
+	background-color: #E5122B;
+	float:right;
+}
+
+#logout:hover{
+	opacity: 0.8;
+}
+
+#formLogin, #newuserForm{
+	max-width: 400px;
+	margin: 0 auto;
+	background-color: #203564;
+	border-radius: 5px;
+	color:white;
+	text-align: center;
+	margin-top:50px;
+}
+
+#formLogin p{
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-size: 28px;
+	line-height: 32px;
+	margin-bottom: 40px;
+	font-weight: 900px;
+}
+
+#formLogin input[type="text"], #formLogin input[type="password"],#newuserForm input[type="text"], #newuserForm input[type="password"],#newuserForm input[type="number"], select{
+	width:80%;
+	background-color:#203564;
+	font-size: 18px;
+	line-height: 24px;
+	color:white;
+	text-align: center;
+	margin:5px 0px;
+	opacity: 0.9;
+	font-family: 'Poppins', sans-serif;
+}
+
+#addvehicle label{
+	width:35%;
+	margin-left: 3%;
+	margin-right: 2%;
+	text-align: left!important;
+}
+
+#addvehicle input, #addrepostar input{
+	width:100%;
+	background-color:#203564;
+	font-size: 18px;
+	line-height: 24px;
+	color:white;
+	text-align: center;
+	margin:5px 0px;
+	opacity: 0.9;
+	font-family: 'Poppins', sans-serif;
+}
+
+::placeholder{
+	color:white;
+}
+
+
+#entryBtn{
+	text-decoration: none;
+	background: #E5122B;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	width:50%;
+	border:none;
+	font-size: 24px;
+	margin:40px 0px 60px 0px;
+	border-radius: 5px;
+}
+#entryBtn:hover{
+	opacity: 0.8;
+}
+
+
+#errorEntry{
+	background-color: #e5122B;
+	width:90%;
+	border-radius: 20px;
+	margin: 0 auto;
+	margin-bottom: 20px!important;
+	font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+	margin-top: -20px!important;
+	padding:10px 0px;
+}
+
+#userInfo, #adminInfo, #tablaUsuarios{
+	max-width: 700px;
+	background-color: #203564;
+	color:white;
+	padding: 30px;
+	border:2px solid #E5122B;
+	margin:0 auto;
+	margin-top:30px;
+	border-radius: 5px;
+	font-family: 'Poppins';
+	font-size: 18px;
+}
+
+.welcome{
+	font-family: 'Barlow Semi Condensed'!important;
+	font-size: 26px!important;
+	font-size: 900!important;
+	text-align: center;
+	text-decoration: underline;
+}
+
+table{
+	width:100%;
+	border: 1px solid white;
+	text-align: center;
+}
+tr{
+	border-bottom: 1px solid white;
+}
+th{
+	font-weight: bold;
+	font-family: 'Barlow Semi Condensed';
+	font-size: 1.5em;
+}
+#addUser{
+	font-family: 'Barlow Semi Condensed';
+	font-size: 22px;
+	line-height: 39px;
+	text-align: center;
+	background-color: white;
+	color:#203564;
+	text-decoration: none;
+	padding:5px 15px;
+	border-radius: 5px;
+}
+#addUser:hover{
+	opacity: 0.8;
+}
+.hidden{
+	display:none;
+}
+.aviso{
+	display: inherit!important;
+}
+#warning{
+
+	background-color: #e5122B;
+	color:white;
+	font-family: 'Poppins';
+	font-size: 20px;
+	line-height: 24px;
+	text-align: center;
+	
+	border:3px solid white;
+	border-radius: 20px;
+	margin-top:30px;
+	margin-bottom: 30px;
+	min-height: 250px;
+	position:fixed;
+    bottom:13px;
+    left: 30%;
+    right: 30%;
+    
+}
+
+#borrarOK{
+	font-family: 'Barlow Semi Condensed';
+	text-decoration: none;
+	background-color: #E5122B;
+	color:white;
+	font-size: 24px;
+	width:30%;
+	margin:10%;
+	border-radius: 5px;
+}
+#borrarNO{
+	font-family: 'Barlow Semi Condensed';
+	text-decoration: none;
+	background-color: white;
+	color:#E5122B;
+	font-size: 24px;
+	width:30%;
+	margin:5px 10%;
+	border-radius: 5px;
+}
+
+menu{
+	float:left;
+	position: relative;
+	width: 100%;
+	padding-inline-start:0px!important;
+	margin-top:-10px!important;
+}
+
+.menuBtn{
+	background-color: white!important;
+	padding: 2px 20px!important;
+	margin:10px 5px!important;
+	font-family: 'Poppins';
+	text-decoration: none;
+	color:#203564;
+	float:left;
+	border:2px solid #E5122B!important;
+}
+.menuBtn:hover{
+	opacity: 0.8;
+}
+
+.vehicle{
+	background-color: #273e72;
+	padding:12px 0px;
+	border-radius: 5px;
+	border: solid 1px white;
+	margin-bottom: 20px;
+
+}
+.vehicle span, .vehicle span b{
+	padding-left: 12px;
+}
+
+.vehicleHead{
+	font-family: 'Barlow Semi Condensed';
+	font-weight: bolder;
+	font-size: 1.4em;
+}
+.vehicleHead a:hover{
+	opacity: 0.8;
+}
+
+
+.editBtn{
+	color:#203564!important;
+	padding: 5px;
+	background-color: white;
+	border-radius: 5px;
+	margin-right:12px;
+	cursor:pointer;
+}
+#trash{
+	color:white!important;
+	padding: 5px;
+	background-color: #E5122B;
+	border-radius: 5px;
+	margin-right:12px;
+	cursor: pointer;
+}
+.vehicleData{
+	font-family: 'Poppins';
+	font-size: 0.9em;
+	font-weight: normal;
+	text-align: left;
+	padding-left: 10px;
+}
+@media(max-width:767px){
+	td{
+		border:1px solid white;
+	}
+}
+
+.warning{
+	color:yellow;
+}
+.danger{
+	background-color: red;
+}
+
+.middle{
+	float: left;
+	width: 80%;
+	margin:1% 10%;
+}
+@media (max-width: 767px){
+	td b{
+		width: 100%!important;
+	}
+}
+input[type="submit"]{
+	background-color:#E5112B!important;
+	width:40%!important;
+	padding:10px 0px!important;
+}
+input[type="submit"]:hover{
+	opacity: 0.8!important;
+}
+
+@media(max-width: 767px){
+	.aviso{
+		width:90%!important;
+		margin:2%!important;
+		left:2%!important;
+	}
+}
+

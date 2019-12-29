@@ -1,0 +1,19 @@
+
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="logueado !='Exito'" id="formLogin">
+	<br>
+	<p><i class="fas fa-user-friends"> </i> Acceso usuarios</p>
+	
+	<label class="labelLogin">Elige tu usuario</label>
+	<select name="ruta" #ruta="ngModel" [(ngModel)]="usuario.ruta">
+
+		<option *ngFor="let user of list" value="{{user.ruta}}">
+			({{user.ruta}}) - {{user.nombre}}
+		</option>
+	</select>
+	<br>
+	<label class="labelLogin">Pon tu contraseña</label>
+	<input type="password" name="password" #password="ngModel" [(ngModel)]="usuario.password" required placeholder="Contraseña"><br>
+	<input type="submit" value="Entrar" id="entryBtn">
+	<div id="errorEntry" *ngIf="logueado=='ErrorDatos'"><i class="fas fa-exclamation-circle"></i><b> Datos incorrectos</b><br>Vuélvelo a intentar</div><br>
+</form>
+

@@ -1,0 +1,42 @@
+<menu></menu>
+<br>
+<div id="adminInfo">
+	<p class="welcome">{{title}}</p>
+	
+
+	<form #addrepostar="ngForm" (ngSubmit)="onSubmit()"  id="addrepostar" style="text-align: center;">
+	<label *ngIf="rol == 'admin'">¿Quién reposta el vehiculo?</label>
+	<select *ngIf="rol == 'admin'" name="conductor" #conductor="ngModel" [(ngModel)]="repostaje.conductor" style="width:100%" [ngClass]="{'hidden': boton == 'Editar Vehiculo'}">
+		<option *ngFor="let user of listaUsuarios" value="{{user.ruta}}">{{user.ruta}} - {{user.nombre}}</option>
+	</select>
+	<label>¿Qúe Vehiculo?</label>
+	<select name="vehiculo" #vehiculo="ngModel" [(ngModel)]="repostaje.vehiculo" style="width:100%" [ngClass]="{'hidden': boton == 'Editar Vehiculo'}"(change)="otroMotivo()">
+		<option *ngIf="miMatricula" value="{{miMatricula}}" selected>{{miMatricula}} - {{miModelo}} - (Eres el responsable)</option>
+		<option *ngFor="let vehiculo of listaVehiculos" value="{{vehiculo.matricula}}">{{vehiculo.matricula}} - {{vehiculo.modelo}}</option>
+		<option value="{{otroVehiculo}}">Otro- {{otroVehiculo}}</option>
+	</select>
+	
+	
+	<br>
+	<label>Litros repostados</label>
+	<input type="number" name="litros" #nombre="ngModel" [(ngModel)]="repostaje.litros"  required placeholder="Se pueden usar decimales">
+
+	
+	
+
+	<br>
+	
+	<br><br>
+	
+
+	<input  id="entryBtn" type="submit" value="{{boton}}">
+	</form>
+<div [class]="hidden" id="warning" style="top:100px!important; bottom:auto">
+		<label>¿Necesitas un vehículo que no está en la lista? Dime cual es.</label>
+		<br>
+		<input id="otroMotivo"  [(ngModel)]="otroVehiculo" style="width:90%!important;height: 110px">
+		<br>
+		<button id="borrarNO" style="margin-bottom: : 5px!important" (click)="darMotivo()">Establecer</button>
+	</div>
+
+</div>

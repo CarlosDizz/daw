@@ -1,0 +1,48 @@
+<menu></menu>
+<br>
+<div id="adminInfo" *ngIf="rol == 'admin'">
+	<p>En este apartado verás un listado detallado de los vehiculos y podrás editarlos.</p>
+	<p>Si encuentras un dato con <span style="color:yellow"> letras amarillas</span> es porque su vencimiento se encuentra próximo. En caso de que sea <span style="background-color: red"> fondo rojo </span> es que el dato ya se ha vencido y debes revisarlo.</p>
+
+	<a id="addUser" [routerLink]="['../addvehicle']"><i class="fas fa-plus-circle"></i> Añadir nuevo Vehiculo</a>
+</div>
+
+<div id="tablaUsuarios" >
+	<div *ngFor="let vehicle of lista" class=vehicle>
+		<div class="vehicleHead"> 
+			<span> {{vehicle.modelo}}  -  {{vehicle.matricula}} <b style="font-size: 0.6em"> ({{vehicle.kilometros}} km)</b></span>
+			<div style="float:right!important;">
+				<a class="editBtn" *ngIf="rol == 'admin'"><i [routerLink]="['../editvehicle', vehicle.id]" class="far fa-edit"></i></a>
+				<a id="trash" *ngIf="rol == 'admin'" class="" (click)="cambiarHidden(vehicle.id)"><i class="far fa-trash-alt"></i></a>
+			</div>
+			<hr>
+		</div>
+		<div class="vehicleBody">
+			<table style="width:100%; border:none!important">
+				<tr>
+					<td class="vehicleData" [ngClass]="{'danger':vehicle.itv <= currentDate}">ITV: <b [ngClass]="{'warning':vehicle.itv <= warningDate && vehicle.itv > currentDate}" >{{vehicle.itv| date:"dd-MM-y"}} </b></td>
+					<td class="vehicleData" [ngClass]="{'danger':vehicle.seguro <= currentDate}">Seguro: <b [ngClass]="{'warning':vehicle.seguro <= warningDate && vehicle.seguro > currentDate}">{{vehicle.seguro| date:"dd-MM-y"}}</b></td>	
+				</tr>
+				<tr>
+					<td [ngClass]="{'danger': (vehicle.revision - vehicle.kilometros) < 100}" class="vehicleData">Revisión en: <b [ngClass]="{'warning': (vehicle.revision - vehicle.kilometros) < 1000 && (vehicle.revision - vehicle.kilometros) > 0}">{{vehicle.revision - vehicle.kilometros}} km</b></td>
+					<td class="vehicleData" [ngClass]="{'danger':vehicle.extintor <= currentDate}">Extintor: <b [ngClass]="{'warning':vehicle.seguro <= warningDate && vehicle.seguro > currentDate}">{{vehicle.extintor| date:"dd-MM-y"}}</b></td>	
+				</tr>
+				<tr>
+					<td class="vehicleData"*ngIf = "vehicle.tacografo != '0000-00-00'" [ngClass]="{'danger':vehicle.tacografo <= currentDate}">Tacógrafo: <b [ngClass]="{'warning':vehicle.tacografo <= warningDate && vehicle.tacografo > currentDate}">{{vehicle.tacografo| date:"dd-MM-y"}}</b></td>
+					<td class="vehicleData"*ngIf = "vehicle.atp != '0000-00-00'" [ngClass]="{'danger':vehicle.atp <= currentDate}">ATP: <b [ngClass]="{'warning':vehicle.atp <= warningDate && vehicle.atp > currentDate}">{{vehicle.atp| date:"dd-MM-y" }}</b></td>	
+				</tr>
+				<tr>
+					<td class="vehicleData" *ngIf = "vehicle.termografo != '0000-00-00'" [ngClass]="{'danger':vehicle.termografo <= currentDate}">Termógrafo: <b [ngClass]="{'warning':vehicle.termografo <= warningDate && vehicle.termografo > currentDate}">{{vehicle.termografo| date:"dd-MM-y"}}</b></td>
+					<td class="vehicleData" *ngIf = "vehicle.transporte != '0000-00-00'" [ngClass]="{'danger':vehicle.transporte <= currentDate}">T. Transporte: <b [ngClass]="{'warning':vehicle.transporte <= warningDate && vehicle.transporte > currentDate}">{{vehicle.transporte| date:"dd-MM-y"}}</b></td>	
+				</tr>
+			</table>
+		</div>
+		<div [class]="hidden" id="warning" style="display: none">
+		<p><i class="fas fa-exclamation-triangle"></i> ¡Atención!</p>
+		<p>Vas a borrar un vehiculo y luego no podrás recuperarlo.</p>
+		<p>¿Esás seguro?</p>
+		<button id="borrarOK" (click)="borrarVehiculo(id)">BORRAR</button>
+		<button id="borrarNO" (click)="descambiaHidden()">Mejor no.</button>
+	</div>
+	</div>
+</div>

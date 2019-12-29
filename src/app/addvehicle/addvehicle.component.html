@@ -1,0 +1,35 @@
+<menu></menu>
+<br>
+<div id="adminInfo">
+	<p class="welcome">{{title}}</p>
+	<form #addvehicle="ngForm" (ngSubmit)="onSubmit()"  id="addvehicle" style="text-align: center;">
+		<label>Selecciona conductor habitual</label>
+	<select name="conductor" #conductor="ngModel" [(ngModel)]="vehiculo.conductor" style="width:100%" [ngClass]="{'hidden': boton == 'Editar Vehiculo'}">
+		<option *ngFor="let user of listaUsuarios" value="{{user.ruta}}">{{user.ruta}} - {{user.nombre}}</option>
+	</select>
+	<div class="middle">
+	<input type="text" name="modelo" #modelo="ngModel" [(ngModel)]="vehiculo.modelo" placeholder="Modelo"></div>
+	<div class="middle"><input type="text" name="matricula" #matricula="ngModel" [(ngModel)]='vehiculo.matricula' placeholder="Matrícula"></div>
+
+	<br>
+	
+	<div class="middle"><label>Seguro </label><br><input type="date" name="seguro" #seguro="ngModel" [(ngModel)]='vehiculo.seguro'></div>
+	<div class="middle"><label>ITV </label><br><input type="date" name="itv" #itv="ngModel" [(ngModel)]='vehiculo.itv'></div>
+	<div class="middle"><label>Extintor </label><br><input type="date" name="extintor" #extintor="ngModel" [(ngModel)]='vehiculo.extintor'></div>
+	<div class="middle"><label>Kilometros actuales</label><br><input type="text" name="kilometros" #kilometros="ngModel" [(ngModel)]='vehiculo.kilometros'></div>
+	<div class="middle"><label>Próxima revisión</label><br><input type="number" name="revision" #revision="ngModel" [(ngModel)]='vehiculo.revision'></div>
+	<div class="middle"><label>Próxima tacografo</label><br><input type="date" name="tacografo" #tacografo="ngModel" [(ngModel)]='vehiculo.tacografo'></div>
+	<div class="middle"><label>Próxima termógrafo</label><br><input type="date" name="tacografo" #tacografo="ngModel" [(ngModel)]='vehiculo.termografo'></div>
+	<div class="middle"><label>Próxima ATP</label><br><input type="date" name="atp" #atp="ngModel" [(ngModel)]='vehiculo.atp'></div>
+	<div class="middle"><label>Caducidad tarjeta de transporte</label><br><input type="date" name="transporte" #transporte="ngModel" [(ngModel)]='vehiculo.transporte'></div>
+
+	<br>
+	
+	<br><br>
+	
+
+	<input  id="entryBtn" type="submit" value="{{boton}}">
+	</form>
+	
+
+</div>

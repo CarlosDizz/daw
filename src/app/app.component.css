@@ -1,0 +1,13 @@
+#app{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+#logo{
+	max-width: 200px;
+	text-align: center;
+}
+nav{
+	background-color: #1F3464;
+	color:white;
+}
