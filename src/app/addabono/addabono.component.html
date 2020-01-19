@@ -1,0 +1,68 @@
+<menu></menu>
+<br>
+
+<div id="adminInfo">
+	<h2>{{title}}</h2>
+	<p [ngClass]="infoComercial">El comercial es:<b> {{comercial}} - {{comercialName}} </b></p>
+	<p [ngClass]="infoComercial">El repartidor es <b>{{repartidor}} - {{repartidorName}}</b></p>
+	<span [ngClass]="tablaAbono">
+	<table class="lineasAbono" [ngClass]="tablaAbono">
+		<P>RESUMEN DE TU ABONO</P>
+		<tr>
+			
+			<th>Artículo</th>
+			<th>Cantidad</th>
+			<th>Eliminar</th>
+		</tr>
+		<tr *ngFor="let line of lineasAbono; let i = index">
+			
+			<td>{{line.articulo}}</td>
+			<td>{{line.cantidad}}</td>
+			<td (click)="deleteline(i)"><i class="fas fa-trash-alt"></i></td>
+
+		</tr>
+	</table>
+	<br>
+	<br>
+	<a  (click)="sendAbono()" ><i class="far fa-check-circle"></i> Confirmar</a>
+	<br>
+	<br>
+</span>
+	
+	<br>
+	<p>Introducir nuevas lineas</p>
+	<form #addAgents="ngForm" (ngSubmit)="goToLines()" [ngClass]="formAgente">
+		<label>Comercial</label><br>
+		<select name="comercial"  [(ngModel)]="comercial" >
+			<option *ngFor="let comerciales of listaComercial" value="{{comerciales.ruta}}" style="width: 100%">{{comerciales.ruta}} - {{comerciales.nombre}}</option>
+
+		</select><br>
+		<label>Repartidor</label><br>
+		<select name="repartidor"  [(ngModel)]="repartidor" >
+			<option *ngFor="let repartidores of listaRepartidores" value="{{repartidores.ruta}}" style="width: 100%">{{repartidores.ruta}} - {{repartidores.nombre}}</option>
+
+		</select>
+
+		<input type="submit" value="Ir a las lineas del abono" style="color:white">
+	</form>
+
+
+	<form #addLineForm="ngForm" (ngSubmit)="addLine()" [ngClass]="infoComercial">
+		<label>Código de cliente</label>
+		<input type="number" name="cliente" #cliente="ngModel" [(ngModel)]="linea.cliente">
+		<label>Artículo</label>
+		<input type="text" name="articulo" #articulo="ngModel" [(ngModel)]="linea.articulo">
+		<label>Cantidad en albarán/factura</label>
+		<input type="number" name="cantidad" #cantidad="ngModel" [(ngModel)]="linea.cantidad">
+		<label>Lote</label>
+		<input type="text" name="lote" #lote="ngModel" [(ngModel)]="linea.lote">
+		<label>Motivo</label>
+		<input type="text" name="motivo" #motivo="ngModel" [(ngModel)]="linea.comentario" placeholder="Si el cliente tuviera varios centros indica también de cual proviene el abono">
+
+		<input type="submit" name="Confirmar linea">
+	</form>
+
+
+	<a class="lineasAbono" *ngIf="lineasAbono.lenght > 0"><i class="far fa-check-circle"></i> Confirmar Abono</a>
+
+</div>

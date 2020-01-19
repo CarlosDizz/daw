@@ -1,7 +1,7 @@
 <menu></menu>
 <br>
 <div id="adminInfo" *ngIf="rol == 'admin' || rol == 'supervisor'">
-	<p>{{title}} - {{rol}}</p>
+	
 	<a id="addUser" [routerLink]="['../addrepostar']"><i class="fas fa-plus-circle"></i> Añadir repostaje</a>
 </div>
 <div id="tablaUsuarios">
@@ -19,7 +19,7 @@
 			<td>{{item.hora|date: "hh:mm dd-MM-yyyy"}}</td>
 			<td>ruta {{item.conductor}}</td>
 			<th *ngIf="rol == 'admin'">
-				<a ><i class="far fa-edit editBtn"></i></a>
+				<a ><i class="far fa-edit editBtn" [routerLink]="['/editrepostar/',item.id]"></i></a>
 				<a (click)="delete(item.id)"><i id="trash" class="far fa-trash-alt"></i></a>
 				<div [class]="hidden" id="warning" style="display: none">
 					<p><i class="fas fa-exclamation-triangle"></i> ¡Atención!</p>
@@ -29,7 +29,7 @@
 					<button id="borrarNO" (click)="descambiaHidden()">Mejor no.</button>
 				</div>
 			</th>
-		</tr>
+		</tr> 
 	</table>
 	
 </div>

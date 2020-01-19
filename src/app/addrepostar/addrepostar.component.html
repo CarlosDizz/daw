@@ -11,7 +11,7 @@
 	</select>
 	<label>¿Qúe Vehiculo?</label>
 	<select name="vehiculo" #vehiculo="ngModel" [(ngModel)]="repostaje.vehiculo" style="width:100%" [ngClass]="{'hidden': boton == 'Editar Vehiculo'}"(change)="otroMotivo()">
-		<option *ngIf="miMatricula" value="{{miMatricula}}" selected>{{miMatricula}} - {{miModelo}} - (Eres el responsable)</option>
+		<option *ngIf="miMatricula && !edit" value="{{miMatricula}}" selected>{{miMatricula}} - {{miModelo}} - (Eres el responsable)</option>
 		<option *ngFor="let vehiculo of listaVehiculos" value="{{vehiculo.matricula}}">{{vehiculo.matricula}} - {{vehiculo.modelo}}</option>
 		<option value="{{otroVehiculo}}">Otro- {{otroVehiculo}}</option>
 	</select>
@@ -40,5 +40,4 @@
 		<br>
 		<button id="borrarNO" style="margin-bottom: : 5px!important" (click)="darMotivo()">Establecer</button>
 	</div>
-
 </div>

@@ -21,6 +21,7 @@ export class RepostarAdmin{
 	public title;
 	public lista: Array<Repostar>;
 	public hidden:string;
+	public idBorrar:string;
 	constructor(
 		public repostarService:RepostarService,
 		private router: Router
@@ -30,6 +31,9 @@ export class RepostarAdmin{
 		this.rol = sessionStorage.getItem('rolLocal');
 		this.lista = new Array();
 		this.hidden = 'hidden';
+		if (this.rol != 'admin' && this.rol != 'supervisor') {
+			this.router.navigate(['/login']);
+		}
 
 	}
 
@@ -43,7 +47,7 @@ export class RepostarAdmin{
 	}
 
 	delete(id){
-		console.log(id);
+		this.idBorrar = id;
 		this.hidden = "aviso";
 
 	}
@@ -52,8 +56,9 @@ export class RepostarAdmin{
 		this.hidden = 'hidden';
 	}
 	borrarRepostaje(id){
-		this.repostarService.borrarRepostar(id).subscribe(
+		this.repostarService.borrarRepostar(this.idBorrar).subscribe(
 			(result:any)=>{
+				console.log(result);
 				alert(result.message);
 				this.hidden = 'hidden';
 				this.ngOnInit();

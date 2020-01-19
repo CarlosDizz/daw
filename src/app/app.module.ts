@@ -14,6 +14,9 @@ import {AddVehicle} from './addvehicle/addvehicle.component';
 import {EditVehicle} from './editvehicle/editvehicle.component';
 import {RepostarAdmin} from './repostaradmin/repostaradmin.component';
 import {AddRepostar} from './addrepostar/addrepostar.component';
+import {EditRepostar} from './editrepostar/editrepostar.component';
+import {AbonosAdmin} from './abonosadmin/abonosadmin.component';
+import {AddAbono} from './addabono/addabono.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import {AddRepostar} from './addrepostar/addrepostar.component';
     AddVehicle,
     EditVehicle,
     RepostarAdmin,
-    AddRepostar
+    AddRepostar,
+    EditRepostar,
+    AbonosAdmin,
+    AddAbono
   ],
   imports: [
     BrowserModule,

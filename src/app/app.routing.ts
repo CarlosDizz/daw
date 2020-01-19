@@ -14,6 +14,9 @@ import {AddVehicle} from './addvehicle/addvehicle.component';
 import {EditVehicle} from './editvehicle/editvehicle.component';
 import {RepostarAdmin} from './repostaradmin/repostaradmin.component';
 import {AddRepostar} from './addrepostar/addrepostar.component';
+import {EditRepostar} from './editrepostar/editrepostar.component';
+import {AbonosAdmin} from './abonosadmin/abonosadmin.component';
+import {AddAbono} from './addabono/addabono.component';
 
 const appRoutes: Routes =[
 	{path: '', component: Login},
@@ -25,6 +28,9 @@ const appRoutes: Routes =[
 	{path: 'editvehicle/:id',component: EditVehicle},
 	{path: 'repostaradmin', component: RepostarAdmin},
 	{path: 'addrepostar', component: AddRepostar},
+	{path: 'editrepostar/:id', component: EditRepostar},
+	{path: 'abonosadmin', component: AbonosAdmin},
+	{path: 'addabono', component:AddAbono},
 	{path:'**', component: Login}
 ];
 

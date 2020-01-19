@@ -8,11 +8,13 @@ import { Router } from "@angular/router";
 
 export class MenuComponent{
 	public rol:string;
+	public hidden:string
 
 	constructor(
 		private router: Router
 		){
 		this.rol = sessionStorage.getItem('rolLocal');
+		this.hidden = 'hidden';
 	}
 
 	logout(){
@@ -20,6 +22,13 @@ export class MenuComponent{
 		sessionStorage.setItem('rolLocal','');
 		sessionStorage.setItem('rutaLocal','');
 		this.router.navigate(['/'])
+	}
+	mostrarMenu(){
+		if(this.hidden == 'hidden'){
+			this.hidden = 'navMovil'
+		} else {
+			this.hidden = 'hidden';
+		}
 	}
 
 

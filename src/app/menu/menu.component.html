@@ -1,33 +1,112 @@
-<nav *ngIf="rol =='admin'">
+<!--MENU ADMIN-->
+<nav  class="menu" *ngIf="rol =='admin'">
 	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
 	<a class="menuBtn" routerLink="/vehiculos"><i class="fas fa-truck"></i> Vehículos</a>
 	<a class="menuBtn" routerLink="/repostaradmin"><i class="fas fa-gas-pump">-<i class="far fa-list-alt"></i></i> Gasoil</a> 
+	<a class="menuBtn" routerLink="/abonosadmin"><i class="fas fa-fish"></i> Abonos</a> 
 	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt">...</i></a>
 </nav>
-
-<nav *ngIf="rol =='almacenista'">
-	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
-	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+<div *ngIf="rol =='admin'"><br>
+	<span class="botonMenu" (click)='mostrarMenu()'><i class="fas fa-bars" id="menuMovil" ></i> Menú</span>
+	<nav [ngClass]="hidden">
 	
-	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
-</nav>
 
-<nav *ngIf="rol =='repartidor'">
+		<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+		<a class="menuBtn" routerLink="/vehiculos"><i class="fas fa-truck"></i> Vehículos</a>
+		<a class="menuBtn" routerLink="/repostaradmin"><i class="fas fa-gas-pump">-<i class="far fa-list-alt"></i></i> Gasoil</a> 
+		<a class="menuBtn" routerLink="/abonosadmin"><i class="fas fa-fish"></i> Abonos</a> 
+		<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt">Salir</i></a>
+
+	</nav>
+
+</div>
+
+
+<!--MENU ALMACENISTA-->
+
+<nav  class="menu" *ngIf="rol =='almacenista'">
 	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
 	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
-	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
+	<a class="menuBtn" routerLink="/addabono"><i class="fas fa-fish"></i> Abonos</a>
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i>...</a>
 </nav>
 
-<nav *ngIf="rol =='comercial'">
+<div *ngIf="rol =='almacenista'"><br>
+	<span class="botonMenu" (click)='mostrarMenu()'><i class="fas fa-bars" id="menuMovil" ></i> Menú</span>
+	<nav [ngClass]="hidden">
+	
+
+		<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	<a class="menuBtn" routerLink="/addabono"><i class="fas fa-fish"></i> Abonos</a>
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i>...</a>
+
+	</nav>
+
+</div>
+
+
+<!--MENU REPARTIDOR-->
+
+<nav class="menu" *ngIf="rol =='repartidor'">
 	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
 	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
-	<a (click)="logout()" id="logout"  title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i>...</a>
 </nav>
 
-<nav *ngIf="rol =='supervisor'">
+<div *ngIf="rol =='repartidor'"><br>
+	<span class="botonMenu" (click)='mostrarMenu()'><i class="fas fa-bars" id="menuMovil" ></i> Menú</span>
+	<nav [ngClass]="hidden">
+	
+
+	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i>...</a>
+	</nav>
+
+</div>
+
+
+
+
+<!--MENU COMERCIAL-->
+
+<nav class="menu" *ngIf="rol =='comercial'">
+	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	<a (click)="logout()" id="logout"  title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i>...</a>
+</nav>
+
+
+<div *ngIf="rol =='comercial'"><br>
+	<span class="botonMenu" (click)='mostrarMenu()'><i class="fas fa-bars" id="menuMovil" ></i> Menú</span>
+	<nav [ngClass]="hidden">
+	
+
+	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i>...</a>
+	</nav>
+
+</div>
+<!--MENU SUPERVISOR -->
+<nav class="menu" *ngIf="rol =='supervisor'">
 	<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
 	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
 	<a class="menuBtn" routerLink="/vehiculos"><i class="fas fa-truck"></i> Vehículos</a>
 	<a class="menuBtn" routerLink="/repostaradmin"><i class="fas fa-gas-pump">-<i class="far fa-list-alt"></i> </i> Gasoil</a>
-	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"> </i></a>
+	<a class="menuBtn" routerLink="/abonosadmin"><i class="fas fa-fish"></i> Abonos</a> 
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"> </i>...</a>
 </nav>
+<div *ngIf="rol =='supervisor'"><br>
+	<span class="botonMenu" (click)='mostrarMenu()'><i class="fas fa-bars" id="menuMovil" ></i> Menú</span>
+	<nav [ngClass]="hidden">
+		<a class="menuBtn" routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+	<a class="menuBtn" routerLink="/addrepostar"><i class="fas fa-gas-pump"></i> Repostar</a>
+	<a class="menuBtn" routerLink="/vehiculos"><i class="fas fa-truck"></i> Vehículos</a>
+	<a class="menuBtn" routerLink="/repostaradmin"><i class="fas fa-gas-pump">-<i class="far fa-list-alt"></i> </i> Gasoil</a>
+	<a class="menuBtn" routerLink="/abonosadmin"><i class="fas fa-fish"></i> Abonos</a> 
+	<a (click)="logout()" id="logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"> </i>...</a>
+</nav>
+</div>
+

@@ -44,52 +44,15 @@ export class RepostarService{
 		return this.http.get(this.urlRepostar+'delete/'+id);
 	}
 
-/*		hacerLogin(usuario){
-				let json = JSON.stringify(usuario);
-				let params = 'json='+json;
-				let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-				return this.http.post(this.url+'login', params, {headers:headers});
+	seleccionID(id){
+		return this.http.get(this.urlRepostar+'select/'+id);
+	}
 
-		}
-
-		comprobarSession(): Observable<any>{
-			return this.http.get(this.url+'sesion');
-		}
-		listarUsuarios(){
-			
-				return this.http.get(this.url+'listar-usuarios');
-			 
-		}
-		borrarusuario(id){
-			this.rol = sessionStorage.getItem('rolLocal');
-			if(this.rol == 'admin'){
-
-				return this.http.get(this.url+'delete-user/'+id);
-			} else {
-				alert('NOOOOO');
-			}
-		}
-
-		selectusuario(ruta){
-			return this.http.get(this.url+'select-user/'+ruta);
-		}
-
-		crearUsuario(usuario){
-			let json = JSON.stringify(usuario);
+	editRepostar(repostaje){
+		let json = JSON.stringify(repostaje);
 			let params = 'json='+json;
 			let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-			return this.http.post(this.url+'add-user', params ,{headers:headers});
-		}
-		editarUsuario(usuario){
-			let json = JSON.stringify(usuario);
-			let params = 'json='+json;
-			let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-			return this.http.post(this.url+'edit-user', params ,{headers:headers});
-		}
-
-
-*/
-	
-
+			return this.http.post(this.urlRepostar+'edit', params ,{headers:headers});
+	}
 
 }

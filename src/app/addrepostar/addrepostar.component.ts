@@ -46,8 +46,10 @@ export class AddRepostar{
 		this.boton = "Añadir";
 		this.miVehiculo = new Array('');
 		this.otroVehiculo ="";
-		this.hidden="hidden";
-		
+		this.hidden="hidden";	
+		if (this.rol == undefined) {
+			this.router.navigate(['/login']);
+		}
 		this._usuarioService.listarUsuarios().subscribe(
 			(result:any)=>{
 				
@@ -57,7 +59,7 @@ export class AddRepostar{
 			);
 		this._vehiculoService.selectByRute(this.ruta).subscribe(
 			(result:any)=>{
-				console.log(result.data);
+				
 				
 					this.miVehiculo=result.data;
 					if(this.miVehiculo[0].matricula){
@@ -106,7 +108,7 @@ export class AddRepostar{
 	darMotivo(){
 		this.hidden="hidden";
 		this.repostaje.vehiculo = this.otroVehiculo;
-		console.log();
+		
 
 	}
 

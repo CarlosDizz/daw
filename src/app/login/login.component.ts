@@ -42,7 +42,6 @@ export class Login{
 		this._usuarioService.listarUsuarios().subscribe(
 				(result:any)=>{
 					this.list = result.data;
-					console.log(this.list);
 				}
 			);
 

@@ -1,0 +1,78 @@
+<menu></menu>
+<br>
+
+<div id="adminInfo">
+	<p>{{title}}</p>
+	<a id="addUser" *ngIf="rol == 'admin'" [routerLink]="['/addabono']"><i class="fas fa-plus-circle"></i> Añadir abono</a>
+	<p><b>PENDIENTES DE REVISIÓN</b></p>
+
+	<table>
+		<tr>
+			<th>
+				Ruta
+			</th>
+			<th>Artículo</th>
+			<th>Cantidad</th>
+			<th *ngIf="rol == 'admin'">Validar</th>
+		</tr>
+		<tr *ngFor="let abono of listaSinValidar">
+			<td>{{abono.comercial}}</td>
+			<td>{{abono.articulo}}</td>
+			<td>{{abono.cantidad}}</td>
+			<td *ngIf="rol == 'admin'"><a (click)="detalleAbono(abono.id)"><i class="fas fa-check-circle"></i></a></td>
+			
+		</tr>
+	</table>
+
+	<div [ngClass]="hidden">
+				<h3>Detalles del abono que vas a validar:</h3>
+				<p>Realizado por <b>{{abonoEditar.autor}}</b> el <b>{{abonoEditar.fecha|date: "dd-MM-yyy"}} </b> </p>
+				<p>Es: <b>{{abonoEditar.articulo}}</b></p>
+				<p>Por: <b>{{abonoEditar.cantidad}}</b> unidades en albarán con el lote: <b>{{abonoEditar.lote}}</b></p>
+				<p>Es de la ruta comercial: {{abonoEditar.comercial}}</p>
+				<p>Motivo: <b>{{abonoEditar.comentario}}</b></p>
+				<p>El repartidor fue: <b>{{abonoEditar.reparto}}</b></p>
+				<br>
+				<p>¿Que solución le ha dado?</p>
+				<input type="text" [(ngModel)]="abonoEditar.solucion"><br><br>
+				<a (click)="validarAbono()"><i class="fas fa-check-circle"></i>Validar</a>
+				<a (click)=noValidar()><i class="far fa-window-close"></i>Volver atrás</a>
+				
+
+			</div>	
+
+</div>
+
+<div id="adminInfo">
+		<p>Validados</p>
+		<table>
+			<tr>
+				<th>Ruta</th>
+				<th>Artículo</th>
+				<th>Cantidad</th>
+				<th>Acciones</th>
+			</tr>
+			<tr *ngFor="let validada of litaValidada">
+				<td>{{validada.comercial}}</td>
+				<td>{{validada.articulo}}</td>
+				<td>{{validada.cantidad}}</td>
+				<td><a title="DES-VALIDAR"  *ngIf="rol == 'admin'" style="background: white;color:#203564;border:2px solid #203564;padding: 3px;border-radius: 100%;font-size: 0.8em;margin:-5px 5px 0px 0px" ><i class="fas fa-backward" style="margin-top: -10px!important;" (click)="desvalidar(validada.id)"></i></a>
+					<a (click)="detalleAbono2(validada.id)"><i class="fas fa-search" style="margin-top:10px"></i></a>
+				</td>
+			</tr>
+		</table>
+			<div [ngClass]="hidden2">
+				<h3>Detalles del abono que vas a validar:</h3>
+				<p>Realizado por <b>{{abonoEditar.autor}}</b> el <b>{{abonoEditar.fecha|date: "dd-MM-yyy"}} </b> </p>
+				<p>Es: <b>{{abonoEditar.articulo}}</b></p>
+				<p>Por: <b>{{abonoEditar.cantidad}}</b> unidades en albarán con el lote: <b>{{abonoEditar.lote}}</b></p>
+				<p>Es de la ruta comercial: {{abonoEditar.comercial}}</p>
+				<p>Motivo: <b>{{abonoEditar.comentario}}</b></p>
+				<p>El repartidor fue: <b>{{abonoEditar.reparto}}</b></p>
+				<p>Solución: <b>{{abonoEditar.solucion}}</b></p>
+				<br>
+				<a (click)=noValidar()><i class="far fa-window-close"></i> Cerrar</a>
+				
+
+			</div>	
+</div>
